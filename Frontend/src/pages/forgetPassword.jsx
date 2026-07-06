@@ -1,8 +1,31 @@
 import { Mail, ArrowRight, ArrowLeft, BriefcaseMedical, LockKeyhole, ShieldCheck } from "lucide-react";
+import { useState } from "react";
 
 function ForgotPassword() {
+    const [errors, setErrors] = useState({});
+    const handleSubmit = (e) => {
+        const newError = {};
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const email = form.get("email");
+
+        if (!email)
+            newError.email = "Email is required";
+        else if (!/\S+@\S+\.\S+/.test(email)) {
+            newError.email = "Invalid email format";
+        }
+
+        setErrors(newError);
+
+        if (Object.keys(newError).length === 0) {
+            console.log("Valid Email:", email);
+        }
+        else
+            console.log(newError.email);
+    }
+
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
+        <div className="forget-pass min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
 
             <main className="w-full max-w-md bg-white rounded-2xl shadow-lg border p-8">
 
@@ -32,7 +55,7 @@ function ForgotPassword() {
                 </p>
 
                 {/* Form */}
-                <form className="space-y-6" action="">
+                <form className="space-y-6" onSubmit={handleSubmit} action="">
                     <div>
                         <label
                             htmlFor="email"
@@ -46,13 +69,14 @@ function ForgotPassword() {
 
                             <input
                                 id="email"
-                                type="email"
+                                type="text"
+                                name="email"
                                 placeholder="e.g. patient@email.com"
                                 className="w-full h-12 pl-12 pr-4 border rounded-lg outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500"
                             />
                         </div>
+                        {errors.email && (<p className="text-red-500 text-sm mt-1">{errors.email}</p>)}
                     </div>
-
                     <button
                         type="submit"
                         className="w-full h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center cursor-pointer gap-2 hover:bg-blue-700 transition"

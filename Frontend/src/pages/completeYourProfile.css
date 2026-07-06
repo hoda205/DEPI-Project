@@ -182,7 +182,8 @@ background-color: #1558cb;
     font-weight: 600;
     color:rgb(195 198 215 );
 }
-.complete-profile .error{
+.complete-profile .error,
+.forget-pass .error{
     color: red;
     font-size: 14px;
     margin-top: 5px;
