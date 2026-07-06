@@ -1,13 +1,13 @@
-main{
+.complete-profile main{
     background-color: #f7f9fb;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     
 }
-footer{
+.complete-profile  footer{
     background-color: #f7f9fb;
     padding-bottom: 1rem ;
 }
-header {
+.complete-profile  header {
     padding: 1.2rem 0;
     margin: auto;
     width: 90%;
@@ -40,10 +40,10 @@ header {
 @media (min-width: 1400px) {
 
 }
-.card-container{
+.complete-profile  .card-container{
     padding: 64px 15px;
 }
-.card{
+.complete-profile  .card{
     width: 90%;
     max-width: 510px;
     margin-left: auto;
@@ -51,7 +51,7 @@ header {
     border: 1px solid #d5d8e5;
     border-radius: 10px;
 }
-.card .icon-part{
+.complete-profile  .card .icon-part{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,33 +61,33 @@ header {
     padding: 2rem 0;
 }
 
-.card  .user-plus-icon-container{
+.complete-profile  .card  .user-plus-icon-container{
     border-radius: 50%;
     padding: 1rem;
     background-color: white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.181);
     font-size: 1rem;
 }
-.card  .user-plus-icon{
+.complete-profile  .card  .user-plus-icon{
     color: #004ac6;
     width: 35px;
     height: 35px;
 }
-.card .form-text,
-.card form{
+.complete-profile  .card .form-text,
+.complete-profile  .card form{
     padding: 2rem;
 }
-.card form {
+.complete-profile .card form {
     padding-bottom: 0;
 }
-.card .form-text h1 {
+.complete-profile .card .form-text h1 {
     font-size: 28px;
     line-height: 36px;
     letter-spacing: -0.01em;
     font-weight: 600;
     text-align: center;
 }
-.card .form-text p{
+.complete-profile .card .form-text p{
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
@@ -95,35 +95,35 @@ header {
     margin-top: 8px;
     color: #434655;
 }
-.card form .date input{
+.complete-profile .card form .date input{
     width: 100%;
     border: 1px solid #d5d8e5;
     border-radius: 10px;
     padding:  8px;
 }
-.card form .blood-type   div div:hover {
+.complete-profile .card form .blood-type   div div:hover {
     background-color: #c8c8c8;
 }
-.card form .blood-type   div div {
+.complete-profile .card form .blood-type   div div {
     border: 1px solid #d5d8e5;
     border-radius: 5px;
     text-align: center;
     padding: 5px;
     transition: 0.3s;
 }
-.card form .blood-type div div:has(input:checked){
+.complete-profile .card form .blood-type div div:has(input:checked){
     font-weight: 600;
     background-color: #004ac6;
     color: white;
 }
-.card form .blood-type  > div {
+.complete-profile .card form .blood-type  > div {
     grid-template-columns: repeat(4, 1fr);
     align-content: center;
 }
-.card form .blood-type  input {
+.complete-profile .card form .blood-type  input {
     display: none;
 }
-.card form .blood-type div label{
+.complete-profile .card form .blood-type div label{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,58 +131,58 @@ header {
     width: 100%;
     height: 100%;
 }
-.card form .gender input {
+.complete-profile .card form .gender input {
     width: 15px;
     height: 15px;
     font-size: 50px;
     margin-right: 5px;
 }
-.card form button{
+.complete-profile .card form button{
     cursor: pointer;
     border-radius: 10px;
     padding: 10px 0;
 }
-.card form .complete-button{
+.complete-profile .card form .complete-button{
     background-color: #004ac6;
     color: white;
 }
-.card form .complete-button:hover{
+.complete-profile .card form .complete-button:hover{
 background-color: #1558cb;
 }
 
-.card form .skip-button{
+.complete-profile .card form .skip-button{
     margin-top: 5px;
     color: #004ac6;
 }
-.card form .skip-button:hover{
+.complete-profile .card form .skip-button:hover{
     background-color: #c8c8c8;
 }
-.card footer{
+.complete-profile .card footer{
     padding:  0 2rem 2rem 2rem;
     color: rgb(115 118 134)  ;
 }
-.card footer p{
+.complete-profile .card footer p{
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.05em;
     font-weight: 600;
 }
-.card hr{
+.complete-profile .card hr{
     margin: 1rem auto;
     border-top: 1px solid #737686;
 }
-.card footer .footer-card-icon{
+.complete-profile .card footer .footer-card-icon{
     margin: 3px 5px 0 0;
     width: 50px;
 }
-footer > p{
+.complete-profile footer > p{
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.05em;
     font-weight: 600;
     color:rgb(195 198 215 );
 }
-.error{
+.complete-profile .error{
     color: red;
     font-size: 14px;
     margin-top: 5px;

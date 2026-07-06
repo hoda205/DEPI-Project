@@ -32,7 +32,7 @@ export default function CompleteYourProfile() {
     };
 
     return (
-        <>
+        <div className="complete-profile">
             {/* Header */}
             <header className="">
                 <div className="container flex justify-start gap-3 items-center">
@@ -191,6 +191,6 @@ export default function CompleteYourProfile() {
                     Privacy Policy • Security Standards
                 </p>
             </footer>
-        </>
+        </div>
     );
 }   

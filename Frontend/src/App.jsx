@@ -1,10 +1,10 @@
-import CompleteYourProfile from "./pages/completeYourProfile";
+// import CompleteYourProfile from "./pages/completeYourProfile";
 // import ForgetPassword from "./pages/forgetPassword";
 function App() {
 
   return (
     <>
-    <CompleteYourProfile />
+    {/* <CompleteYourProfile /> */}
     {/* <ForgetPassword /> */}
     </>
   )
