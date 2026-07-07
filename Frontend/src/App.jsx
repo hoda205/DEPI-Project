@@ -1,13 +1,11 @@
-// import CompleteYourProfile from "./pages/completeYourProfile";
-// import ForgetPassword from "./pages/forgetPassword";
-function App() {
+import Dashboard from "./pages/Dashboard";
 
+function App() {
   return (
     <>
-    {/* <CompleteYourProfile /> */}
-    {/* <ForgetPassword /> */}
+      <Dashboard />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.filter-blue {
+    filter: invert(36%) sepia(84%) saturate(2294%) hue-rotate(209deg) brightness(98%) contrast(93%);
+}
