@@ -1,50 +1,50 @@
-import { Bell, BriefcaseMedical, Calendar, FileText, FolderOpen, LayoutDashboard, LogOut, Menu, Siren, User } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Bell, BriefcaseMedical, Calendar, FileText, FolderOpen, LayoutDashboard, LogOut, Siren, User, X } from "lucide-react";
+import { useEffect, useRef } from "react";
 import "./sidebar.css"
+import { NavLink } from "react-router-dom";
 
 const tabs = [
     {
-        id: "dashboard",
         title: "Dashboard",
         icon: LayoutDashboard,
+        path: "/",
     },
     {
-        id: "medical-profile",
         title: "Medical Profile",
         icon: User,
+        path: "/profile",
     },
     {
-        id: "appointment",
         title: "Appointment",
         icon: Calendar,
+        path: "/appointments",
     },
     {
-        id: "medical-records",
         title: "Medical Records",
         icon: FolderOpen,
+        path: "/records",
     },
     {
-        id: "prescriptions",
         title: "Prescriptions",
         icon: FileText,
+        path: "/prescriptions",
     },
     {
-        id: "emergency-card",
         title: "Emergency Card",
         icon: Siren,
+        path: "/emergency",
     },
     {
-        id: "notifications",
         title: "Notifications",
         icon: Bell,
+        path: "/notifications",
     },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
 
-    const [open, setOpen] = useState(false);
-    const [activeTab, setActiveTab] = useState("dashboard");
+
     const sidebarRef = useRef(null);
 
     useEffect(() => {
@@ -53,46 +53,53 @@ export default function Sidebar() {
                 sidebarRef.current &&
                 !sidebarRef.current.contains(event.target)
             ) {
-                setOpen(false);
+                setSidebarOpen(false);
             }
         }
 
-        if (open) {
+        if (sidebarOpen) {
             document.addEventListener("mousedown", handleClickOutside);
         }
 
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [open]);
+    }, [sidebarOpen]);
+
 
     return (
+
         <div className="sidebar">
-            <button
-                className="md:hidden p-2"
-                onClick={() => setOpen(!open)}
-            >
-                <Menu />
-            </button>
+
             <aside ref={sidebarRef}
                 className={`
-                fixed md:static
-                top-0 left-0
-                h-screen w-64
-                bg-white
-                flex flex-col
-                transition-transform duration-300
-                ${open ? "translate-x-0" : "-translate-x-full"}
-                md:translate-x-0`}>
+                    fixed
+                    top-0
+                    left-0
+                    bottom-0
+                    w-64
+                    bg-white
+                    flex
+                    flex-col
+                    transition-transform
+                    duration-300
+                    ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+                    lg:translate-x-0
+                    z-50
+                `}>
+
                 {/* Logo */}
-                <div className="logo flex items-center gap-2 p-6 ">
-                    <BriefcaseMedical className="logo-icon w-9 h-9  " />
-                    <div className="">
-                        <h1 className="text-xl font-bold ">
-                            MedithVault
-                        </h1>
-                        <p className="text-sm font-medium">Health Management</p>
+                <div className="flex justify-between items-center p-6">
+                    <div className="logo flex items-center gap-2  ">
+                        <BriefcaseMedical className="logo-icon w-9 h-9  " />
+                        <div className="">
+                            <h1 className="text-xl font-bold ">
+                                MedithVault
+                            </h1>
+                            <p className="text-sm font-medium">Health Management</p>
+                        </div>
                     </div>
+                    <button className="md:hidden p-1 rounded-md hover:bg-blue-100" onClick={() => setSidebarOpen(false)}><X className="w-4 h-4 cursor-pointer " /></button>
                 </div>
 
                 {/* Tabs */}
@@ -102,18 +109,19 @@ export default function Sidebar() {
                         const Icon = tab.icon;
 
                         return (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
-                                className={`flex items-center gap-3 w-full p-3 rounded-lg text-left text-label-md transition-colors 
-                                    ${activeTab === tab.id
-                                        ? "active"
+                            <NavLink
+                                key={tab.path}
+                                to={tab.path}
+                                className={({ isActive }) =>
+                                    `flex items-center gap-3 w-full p-3 rounded-lg transition-colors ${isActive
+                                        ? "bg-blue-600 text-white"
                                         : "hover:bg-blue-100"
-                                    }`}
+                                    }`
+                                }
                             >
                                 <Icon className="h-5 w-5" />
                                 {tab.title}
-                            </button>
+                            </NavLink>
                         );
                     })}
                 </nav>
