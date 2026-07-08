@@ -2,7 +2,6 @@
 const Dashboard = () => {
   return (
     <div className="bg-gray-50 flex h-screen overflow-hidden text-gray-800 w-full">
-      {/* Sidebar / Aside */}
       
 
       {/* Main Content */}
