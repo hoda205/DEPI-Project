@@ -1,75 +1,13 @@
-import React from 'react';
 
 const Dashboard = () => {
   return (
     <div className="bg-gray-50 flex h-screen overflow-hidden text-gray-800 w-full">
       {/* Sidebar / Aside */}
-      <aside className="w-64 bg-gray-50 border-r border-gray-200 flex flex-col justify-between h-full">
-        <div>
-          <div className="p-6 flex items-center gap-3">
-            <div className="bg-blue-600 text-white p-2 rounded-lg">
-              <i className="fa-solid fa-shield-heart text-xl"></i>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">MediVault</h1>
-              <p className="text-xs text-gray-500">Health Management</p>
-            </div>
-          </div>
-
-          <nav className="px-4 space-y-1 mt-4">
-            <a href="#" className="flex items-center gap-3 bg-blue-600 text-white px-4 py-3 rounded-lg font-medium shadow-sm">
-              <i className="fa-solid fa-border-all w-5"></i> Dashboard
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-600 hover:bg-gray-100 px-4 py-3 rounded-lg font-medium transition">
-              <i className="fa-regular fa-user w-5"></i> Medical Profile
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-600 hover:bg-gray-100 px-4 py-3 rounded-lg font-medium transition">
-              <i className="fa-solid fa-pills w-5"></i> Medications
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-600 hover:bg-gray-100 px-4 py-3 rounded-lg font-medium transition">
-              <i className="fa-regular fa-calendar-check w-5"></i> Appointments
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-600 hover:bg-gray-100 px-4 py-3 rounded-lg font-medium transition">
-              <i className="fa-regular fa-folder-open w-5"></i> Medical Records
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-600 hover:bg-gray-100 px-4 py-3 rounded-lg font-medium transition">
-              <i className="fa-solid fa-file-prescription w-5"></i> Prescriptions
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-600 hover:bg-gray-100 px-4 py-3 rounded-lg font-medium transition">
-              <i className="fa-solid fa-kit-medical w-5"></i> Emergency Card
-            </a>
-          </nav>
-        </div>
-
-        <div className="p-4 space-y-2">
-          <button className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-lg font-bold transition shadow-sm">
-            <i className="fa-solid fa-truck-medical"></i> Emergency SOS
-          </button>
-          <a href="#" className="flex items-center gap-3 text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition text-sm">
-            <i className="fa-regular fa-circle-question w-5"></i> Help Center
-          </a>
-          <a href="#" className="flex items-center gap-3 text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition text-sm">
-            <i className="fa-solid fa-arrow-right-from-bracket w-5"></i> Sign Out
-          </a>
-        </div>
-      </aside>
+      
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col h-full relative overflow-y-auto">
-        <header className="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-8 sticky top-0 z-10">
-          <div className="relative w-96">
-            <i className="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-            <input type="text" placeholder="Search records, medications..." className="w-full bg-gray-50 border border-gray-200 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:border-blue-500 text-sm text-gray-700" />
-          </div>
-          <div className="flex items-center gap-5 text-gray-500">
-            <button className="hover:text-blue-600 transition relative">
-              <i className="fa-regular fa-bell text-xl"></i>
-              <span className="absolute -top-1 -right-1 bg-red-500 rounded-full w-2 h-2"></span>
-            </button>
-            <button className="hover:text-blue-600 transition"><i class="fa-regular fa-circle-question text-xl"></i></button>
-            <img src="https://ui-avatars.com/api/?name=Alex&background=EBF4FF&color=1E3A8A" alt="Profile" className="w-8 h-8 rounded-full border border-gray-200 cursor-pointer" />
-          </div>
-        </header>
+        
 
         <div className="p-8 max-w-7xl mx-auto w-full space-y-6">
           <div className="flex justify-between items-end">
