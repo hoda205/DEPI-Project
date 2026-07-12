@@ -1,0 +1,57 @@
+:root{
+    --blue: #004ac6;
+    --gray: #6a6d79;
+    --red: #ba1a1a;
+}
+.sidebar button{
+    cursor: pointer;
+}
+.bg-red{
+    background-color: var(--red) ;
+}
+.text-gray{
+    color: var(--gray);
+}
+.sidebar aside{
+    background-color: #eceef0;
+}
+.sidebar .logo h1 {
+    color: var(--blue);
+}
+.sidebar .logo .logo-icon{
+    background-color: var(--blue);
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+}
+.sidebar .logo p{
+    color: #696c78;
+}
+.text-label-md {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+}
+.sidebar aside nav .active{
+    background-color: #2563eb;
+    color: white;
+}
+.sidebar aside nav button{
+    transition: 0.3s;
+}
+.sidebar .emergency-sos{
+    background-color: var(--red);
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.sidebar .emergency-sos:hover{
+    border: 1px solid var(--red);
+    color: var(--red);
+    background-color: white;
+}
+.sidebar .sign-out:hover{
+    text-decoration: underline;
+}
