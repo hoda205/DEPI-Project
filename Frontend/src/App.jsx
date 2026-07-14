@@ -1,25 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import SignUp from './pages/SignUp';
-import CompleteYourProfile from './pages/completeYourProfile'; 
-import SignIn from './pages/SignIn'; 
-import ForgetPassword from './pages/forgetPassword';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const App = () => {
+import Dashboard from "./pages/Dashboard";
+import Appointment from "./pages/Appointment";
+import Prescriptions from "./pages/Prescriptions";
+import EmergencyCard from "./pages/EmergencyCard";
+import Notifications from "./pages/Notifications";
+import DashboardLayout from "./layouts/DashboardLayout"
+import MedicalRecords from "./pages/MedicalRecords";
+import MedicalProfile from "./pages/MedicalProfile";
+
+function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/signup" />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/complete-profile" element={<CompleteYourProfile />} />
-        <Route path="/signin" element={<SignIn />} /> 
+        <Route element={<DashboardLayout />}>
         
-        {/* السطر اللي بيربط صفحة استعادة كلمة المرور */}
-        <Route path="/forget-password" element={<ForgetPassword />} />
-        
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/profile" element={<MedicalProfile />} />
+        <Route path="/appointments" element={<Appointment />} />
+        <Route path="/records" element={<MedicalRecords />} />
+        <Route path="/prescriptions" element={<Prescriptions />} />
+        <Route path="/emergency" element={<EmergencyCard />} />
+        <Route path="/notifications" element={<Notifications />} />
+
+        </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
