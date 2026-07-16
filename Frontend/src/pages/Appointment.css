@@ -1,0 +1,40 @@
+.color-blue {
+  color: #155dfc;
+}
+.Appointment button {
+    background-color: #155dfc !important;
+  color: white !important;
+  border: 1px solid #155dfc !important;
+  transition: 0.4s;
+}
+.Appointment button:hover,
+ .Appointment .plus-icon:hover{
+    background-color: #437bf5 !important;
+}
+.Appointment .fc-today-button {
+  color: #155dfc !important;
+  background-color: transparent !important;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.Appointment .fc-today-button:hover {
+  background-color: #155dfc !important;
+  color: white !important;
+}
+
+.Appointment .plus-icon{
+    color: white;
+    background-color: #155dfc;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 5px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    cursor: pointer;
+    transform: 0.4s;
+}
