@@ -1,11 +1,14 @@
 import { ArrowRight, BriefcaseMedical, LockKeyhole, UserPlus } from "lucide-react";
 import "./completeYourProfile.css";
 import { useState } from "react";
-
+import { Link , useNavigate } from 'react-router-dom';
+ 
 export default function CompleteYourProfile() {
     const bloodTypes = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
     const [errors, setErrors] = useState({});
 
+    const navigate = useNavigate();
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
@@ -29,6 +32,10 @@ export default function CompleteYourProfile() {
         else 
             console.log("errors")
         // TODO: Submit data
+        let x = true;
+        if (x) {
+            navigate("/");
+        }
     };
 
     return (
@@ -157,12 +164,14 @@ export default function CompleteYourProfile() {
                                     <ArrowRight />
                                 </button>
 
+                                <Link to="/" >
                                 <button
                                     type="button"
                                     className="skip-button flex items-center w-full justify-center"
                                 >
                                     Skip for Now
                                 </button>
+                                </Link>
                             </div>
                         </form>
 

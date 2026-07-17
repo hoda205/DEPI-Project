@@ -1,5 +1,6 @@
 import { Mail, ArrowRight, ArrowLeft, BriefcaseMedical, LockKeyhole, ShieldCheck } from "lucide-react";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 function ForgotPassword() {
     const [errors, setErrors] = useState({});
@@ -85,6 +86,7 @@ function ForgotPassword() {
                         <ArrowRight size={18} />
                     </button>
 
+                    <Link to="/signin">
                     <button
                         type="button"
                         className="w-full text-blue-600 flex items-center justify-center gap-2 hover:underline cursor-pointer"
@@ -92,6 +94,7 @@ function ForgotPassword() {
                         <ArrowLeft size={18} />
                         Back to Login
                     </button>
+                    </Link>
                 </form>
             </main>
 

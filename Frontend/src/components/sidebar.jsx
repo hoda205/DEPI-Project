@@ -1,7 +1,7 @@
 import { Bell, BriefcaseMedical, Calendar, FileText, FolderOpen, LayoutDashboard, LogOut, Siren, User, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 import "./sidebar.css"
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const tabs = [
     {
@@ -28,11 +28,6 @@ const tabs = [
         title: "Prescriptions",
         icon: FileText,
         path: "/prescriptions",
-    },
-    {
-        title: "Emergency Card",
-        icon: Siren,
-        path: "/emergency",
     },
     {
         title: "Notifications",
@@ -128,13 +123,17 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 {/* Bottom Buttons */}
                 <div className="p-4  space-y-3">
 
+                    
+                    <Link to="/emergency">
                     <button className="emergency-sos flex items-center gap-2 justify-center w-full text-sm font-medium py-2 rounded-lg  ">
                         <Siren className="w-5 h-5" />Emergency SOS
                     </button>
+                    </Link>
                     {/* hover:bg-blue-100 w-full */}
+                    <Link to="/signin">
                     <button className="sign-out text-label-md flex items-center gap-3  text-left p-3 rounded-lg ">
                         <LogOut className="w-4 h-4" />Sign Out
-                    </button>
+                    </button></Link>
                 </div>
             </aside>
         </div>

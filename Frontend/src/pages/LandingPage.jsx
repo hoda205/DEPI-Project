@@ -1,10 +1,10 @@
-import React from 'react';
 import './LandingPage.css';
-import heroImg from './assets/hero.png';
+import heroImg from '../assets/hero.png';
+import { Link } from 'react-router-dom';
 
-function App() {
+function LandingPage() {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#F8FAFC' }}>
+        <div className="landing-page" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#F8FAFC' }}>
 
             {/* 1. NAVBAR */}
             <header style={{ borderBottom: '1px solid #EDF2F7', backgroundColor: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(8px)', position: 'sticky', top: 0, zIndex: 50 }}>
@@ -55,9 +55,25 @@ function App() {
 
                     {/* Action Buttons */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
-                        <button style={{ backgroundColor: '#0052CC', color: 'white', border: 'none', padding: '14px', borderRadius: '8px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 82, 204, 0.2)', transition: 'all 0.2s' }}>
+                        <Link
+                            to="/signup"
+                            style={{
+                                display: "inline-block",
+                                backgroundColor: "#0052CC",
+                                color: "white",
+                                textDecoration: "none",
+                                padding: "14px",
+                                borderRadius: "8px",
+                                fontSize: "15px",
+                                fontWeight: "600",
+                                cursor: "pointer",
+                                boxShadow: "0 4px 12px rgba(0, 82, 204, 0.2)",
+                                transition: "all 0.2s",
+                                textAlign: 'center',
+                            }}
+                        >
                             Create Account
-                        </button>
+                        </Link>
 
                         <button style={{ backgroundColor: 'white', color: '#1A202C', border: '1px solid #E2E8F0', padding: '14px', borderRadius: '8px', fontSize: '15px', fontWeight: '500', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', transition: 'all 0.2s' }}>
                             <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style={{ width: '18px', height: '18px' }} />
@@ -73,7 +89,7 @@ function App() {
                     </div>
 
                     {/* Sign In Link */}
-                    <a href="#signin" style={{ textDecoration: 'none', color: '#0052CC', fontSize: '15px', fontWeight: '600', textAlign: 'center' }}>Sign In</a>
+                    <Link to="/signin" style={{ textDecoration: 'none', color: '#0052CC', fontSize: '15px', fontWeight: '600', textAlign: 'center' }}>Sign In</Link>
 
                     {/* Stats */}
                     <div style={{ display: 'flex', gap: '48px', marginTop: '16px', borderTop: '1px solid #E2E8F0', paddingTop: '24px' }}>
@@ -157,4 +173,4 @@ function App() {
     );
 }
 
-export default App;
+export default LandingPage;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const SignUp = () => {
@@ -16,7 +16,6 @@ const SignUp = () => {
   // 3. State لقياس وعرض قوة كلمة المرور تلقائياً
   const [strength, setStrength] = useState({ text: 'Strong', colorClass: 'text-emerald-500', barCount: 3 });
   const [isLoading, setIsLoading] = useState(false);
-
   // دالة ذكية لحساب قوة الباسورد وتحديث الشريط الأخضر بناءً على اللي بيتكتب
   const handlePasswordChange = (e) => {
     const val = e.target.value;
@@ -31,6 +30,10 @@ const SignUp = () => {
     } else {
       setStrength({ text: 'Strong', colorClass: 'text-emerald-500', barCount: 3 });
     }
+
+  if(true){
+    navigate('/' , { replace: true })
+  }
   };
 
   // دالة عند الضغط على زرار Create Account لحفظ البيانات والتحقق منها
@@ -48,7 +51,7 @@ const SignUp = () => {
     setTimeout(() => {
       alert(`🎉 Account created successfully for ${fullName}!`);
       setIsLoading(false);
-      navigate('/complete-profile'); 
+      navigate('/complete-profile', { replace: true }); 
     }, 1500);
   };
 

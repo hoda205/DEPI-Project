@@ -1,7 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 
 export default function SignIn() {
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    if(true){
+      navigate('/', { replace: true })
+    }
+  }
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-[#f7f9fb]">
       {/* Main Container */}
@@ -27,7 +32,7 @@ export default function SignIn() {
             <h2 className="text-2xl font-bold mb-2">Sign In</h2>
             <p className="text-gray-600 mb-8">Welcome back! Please enter your details.</p>
             
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Email or Username</label>
                 <input type="text" className="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="e.g. alex.smith@email.com" />
