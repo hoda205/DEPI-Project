@@ -56,13 +56,20 @@ const Prescriptions = () => {
                   <h3 className="font-bold text-lg">Dr. {p.doctor}</h3>
                   <p className="text-sm text-gray-400">{p.date}</p>
                 </div>
-                {/* تم ربط زر الحذف بالدالة */}
-                <button 
-                  onClick={() => handleDelete(p.id)} 
-                  className="text-gray-400 hover:text-red-500 transition-colors"
-                >
-                  🗑️
-                </button>
+                <div className="flex items-center gap-4">
+                  {/* الرابط المضاف لفتح الصورة */}
+                  {p.url && (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:underline">
+                      View Prescription
+                    </a>
+                  )}
+                  <button 
+                    onClick={() => handleDelete(p.id)} 
+                    className="text-gray-400 hover:text-red-500 transition-colors"
+                  >
+                    🗑️
+                  </button>
+                </div>
               </div>
               <div className="mt-4 p-2 bg-gray-50 rounded text-sm text-gray-600">{p.notes}</div>
             </div>
