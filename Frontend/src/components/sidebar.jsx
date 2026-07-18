@@ -7,7 +7,7 @@ const tabs = [
     {
         title: "Dashboard",
         icon: LayoutDashboard,
-        path: "/",
+        path: "/dashboard",
     },
     {
         title: "Medical Profile",
