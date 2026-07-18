@@ -12,6 +12,7 @@ import SignIn from "./pages/SignIn";
 import LandingPage from "./pages/LandingPage";
 import ForgotPassword from "./pages/forgetPassword";
 import CompleteYourProfile from "./pages/completeYourProfile";
+import Medications from "./pages/Medications";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/records" element={<MedicalRecords />} />
         <Route path="/prescriptions" element={<Prescriptions />} />
         <Route path="/emergency" element={<EmergencyCard />} />
+        <Route path="/medications" element={<Medications />} />
 
         </Route>
       </Routes>
