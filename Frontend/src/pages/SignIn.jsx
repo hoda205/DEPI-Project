@@ -1,18 +1,27 @@
-import { Link , useNavigate} from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
+
   const handleSubmit = (e) => {
-    if(true){
-      navigate('/dashboard', { replace: true })
+    e.preventDefault();
+    
+    // التعديل هنا: التأكد من أن الحقول ليست فارغة
+    if (formData.email.trim() !== '' && formData.password.trim() !== '') {
+      navigate('/dashboard', { replace: true });
+    } else {
+      setError('Please enter your email and password');
     }
-  }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-[#f7f9fb]">
-      {/* Main Container */}
       <main className="w-full max-w-[1100px] flex flex-col md:flex-row bg-white rounded-[2rem] overflow-hidden shadow-xl border border-gray-200">
         
-        {/* Left Side: Visual/Brand (يظهر فقط في الشاشات الكبيرة) */}
+        {/* Left Side: Visual/Brand */}
         <div className="hidden md:flex md:w-1/2 bg-blue-600 p-12 flex-col justify-between text-white">
           <div>
             <div className="flex items-center gap-3 mb-10">
@@ -32,18 +41,29 @@ export default function SignIn() {
             <h2 className="text-2xl font-bold mb-2">Sign In</h2>
             <p className="text-gray-600 mb-8">Welcome back! Please enter your details.</p>
             
+            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+            
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Email or Username</label>
-                <input type="text" className="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="e.g. alex.smith@email.com" />
+                <input 
+                  type="text" 
+                  className="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" 
+                  placeholder="e.g. alex.smith@email.com" 
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
               </div>
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                <input type="password" className="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="••••••••" />
+                <input 
+                  type="password" 
+                  className="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" 
+                  placeholder="••••••••" 
+                  onChange={(e) => setFormData({...formData, password: e.target.value})}
+                />
               </div>
 
-              {/* Remember Me & Forgot Password */}
               <div className="flex items-center justify-between">
                 <label className="flex items-center gap-2 text-sm text-gray-600">
                   <input type="checkbox" className="w-4 h-4 rounded accent-blue-600" />
@@ -54,7 +74,7 @@ export default function SignIn() {
                 </Link>
               </div>
 
-              <button className="w-full bg-blue-600 text-white p-3 rounded-xl font-bold hover:bg-blue-700 transition">
+              <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded-xl font-bold hover:bg-blue-700 transition">
                 Sign In
               </button>
             </form>

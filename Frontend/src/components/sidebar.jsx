@@ -1,4 +1,4 @@
-import { Bell, BriefcaseMedical, Calendar, FileText, FolderOpen, LayoutDashboard, LogOut, Siren, User, X } from "lucide-react";
+import { Bell, BriefcaseMedical, Calendar, FileText, FolderOpen, LayoutDashboard, LogOut, Siren, User, X, Pill } from "lucide-react";
 import { useEffect, useRef } from "react";
 import "./sidebar.css"
 import { Link, NavLink } from "react-router-dom";
@@ -29,11 +29,14 @@ const tabs = [
         icon: FileText,
         path: "/prescriptions",
     },
+    {
+        title: "Medications",
+        icon: Pill,
+        path: "/medications",
+    },
 ];
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
-
-
 
     const sidebarRef = useRef(null);
 
@@ -55,7 +58,6 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [sidebarOpen]);
-
 
     return (
 
@@ -124,7 +126,6 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         <Siren className="w-5 h-5" />Emergency SOS
                     </button>
                     </Link>
-                    {/* hover:bg-blue-100 w-full */}
                     <Link to="/signin">
                     <button className="sign-out text-label-md flex items-center gap-3  text-left p-3 rounded-lg ">
                         <LogOut className="w-4 h-4" />Sign Out
