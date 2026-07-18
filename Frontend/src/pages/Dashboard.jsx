@@ -1,22 +1,15 @@
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
     <div className="bg-gray-50 flex h-screen overflow-hidden text-gray-800 w-full">
-      
-
-      {/* Main Content */}
       <main className="flex-1 flex flex-col h-full relative overflow-y-auto">
-        
-
         <div className="p-8 max-w-7xl mx-auto w-full space-y-6">
           <div className="flex justify-between items-end">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Welcome to MediVault, Alex</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Welcome to MediVault</h2>
               <p className="text-gray-500 mt-1">Let's get your health profile started today.</p>
             </div>
-            <button className="flex items-center gap-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition shadow-sm">
-              <i className="fa-solid fa-clock-rotate-left"></i> View History
-            </button>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -29,16 +22,16 @@ const Dashboard = () => {
                 <div className="mb-6">
                   <div className="flex justify-between text-sm text-blue-100 mb-2">
                     <span>Current Progress</span>
-                    <span>0%</span>
+                    <span>{localStorage.getItem('profileProgress') || 0}%</span>
                   </div>
                   <div className="w-full bg-blue-800 rounded-full h-2">
-                    <div className="bg-white h-2 rounded-full w-0"></div>
+                    <div className="bg-white h-2 rounded-full" style={{ width: (localStorage.getItem('profileProgress') || 0) + '%' }}></div>
                   </div>
                 </div>
                 
-                <button className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2.5 rounded-lg font-bold text-sm transition flex items-center gap-2">
+                <Link to="/profile" className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2.5 rounded-lg font-bold text-sm transition flex items-center gap-2 w-max">
                   Complete My Profile <i className="fa-solid fa-arrow-right"></i>
-                </button>
+                </Link>
               </div>
               <div className="hidden md:block z-10 w-48 h-48 rounded-xl overflow-hidden shadow-inner flex-shrink-0">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPdcmPdXYlKIStUOWJpRruQEvcCn8NMEXRz5_LjkXDX8DjealpCCcl3hypXN8fRpZB1QjQDnnvelQovFl2l9yA-8MJCvW8epm24meBLbB4SkvMqJSY5O3_BKgC4wgnbHCPj6mrp3g7QOv5bHCeaBj12PD6tNGiC1Z0Y6HjulTKTRqpNjT_O1aXx95YlJKxdU0ZS-hnXPnaUeW2HMFIk_WXYwN_-rXwH7BCL5GJcahccezuezNdIYXXjG0CHNV43lQiFGbDirmkoLg" alt="Medical Clipboard" className="w-full h-full object-cover" />
@@ -46,33 +39,39 @@ const Dashboard = () => {
             </div>
 
             <div className="flex flex-col gap-4 justify-between">
-              <button className="bg-white p-5 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition flex items-start gap-4 text-left group">
-                <div className="bg-blue-50 text-blue-600 p-3 rounded-full group-hover:bg-blue-600 group-hover:text-white transition">
-                  <i className="fa-solid fa-plus"></i>
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800">Add Medication</h4>
-                  <p className="text-xs text-gray-500 mt-1">Log a new prescription</p>
-                </div>
-              </button>
-              <button className="bg-white p-5 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition flex items-start gap-4 text-left group">
-                <div className="bg-green-50 text-green-600 p-3 rounded-full group-hover:bg-green-600 group-hover:text-white transition">
-                  <i className="fa-regular fa-calendar-plus"></i>
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800">Add Appointment</h4>
-                  <p className="text-xs text-gray-500 mt-1">Schedule a follow-up</p>
-                </div>
-              </button>
-              <button className="bg-white p-5 rounded-xl border border-gray-200 hover:border-purple-400 hover:shadow-md transition flex items-start gap-4 text-left group">
-                <div className="bg-purple-50 text-purple-600 p-3 rounded-full group-hover:bg-purple-600 group-hover:text-white transition">
-                  <i className="fa-solid fa-cloud-arrow-up"></i>
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800">Upload Record</h4>
-                  <p className="text-xs text-gray-500 mt-1">PDF, JPG or Scan</p>
-                </div>
-              </button>
+              <Link to="/medications">
+                <button className="bg-white p-5 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition flex items-start gap-4 text-left group w-full">
+                  <div className="bg-blue-50 text-blue-600 p-3 rounded-full group-hover:bg-blue-600 group-hover:text-white transition">
+                    <i className="fa-solid fa-plus"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Add Medication</h4>
+                    <p className="text-xs text-gray-500 mt-1">Log a new prescription</p>
+                  </div>
+                </button>
+              </Link>
+              <Link to="/appointments">
+                <button className="bg-white p-5 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition flex items-start gap-4 text-left group w-full">
+                  <div className="bg-green-50 text-green-600 p-3 rounded-full group-hover:bg-green-600 group-hover:text-white transition">
+                    <i className="fa-regular fa-calendar-plus"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Add Appointment</h4>
+                    <p className="text-xs text-gray-500 mt-1">Schedule a follow-up</p>
+                  </div>
+                </button>
+              </Link>
+              <Link to="/prescriptions">
+                <button className="bg-white p-5 rounded-xl border border-gray-200 hover:border-purple-400 hover:shadow-md transition flex items-start gap-4 text-left group w-full">
+                  <div className="bg-purple-50 text-purple-600 p-3 rounded-full group-hover:bg-purple-600 group-hover:text-white transition">
+                    <i className="fa-solid fa-cloud-arrow-up"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Upload Prescriptions</h4>
+                    <p className="text-xs text-gray-500 mt-1">PDF, JPG or Scan</p>
+                  </div>
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -83,11 +82,11 @@ const Dashboard = () => {
               </h4>
               <div className="text-center flex flex-col items-center justify-center">
                 <div className="bg-gray-50 w-16 h-16 rounded-full flex items-center justify-center text-gray-400 text-2xl mb-4">
-                  <i className="fa-solid fa-syringe"></i>
+                  <i className="fa-solid fa-fa-syringe"></i>
                 </div>
                 <h5 className="text-sm font-bold text-gray-800 mb-1">No medications logged</h5>
                 <p className="text-xs text-gray-500 mb-4 max-w-[200px]">Start tracking your daily meds to get reminders and stay on schedule.</p>
-                <button className="text-blue-600 font-bold text-sm hover:underline">+ Add First Med</button>
+                <Link to="/medications" className="text-blue-600 font-bold text-sm hover:underline">+ Add First Med</Link>
               </div>
             </div>
 
@@ -101,7 +100,7 @@ const Dashboard = () => {
                 </div>
                 <h5 className="text-sm font-bold text-gray-800 mb-1">No upcoming visits</h5>
                 <p className="text-xs text-gray-500 mb-4 max-w-[200px]">Your schedule is clear. Add visits to receive prep instructions.</p>
-                <button className="text-green-600 font-bold text-sm hover:underline">Book a Consultation</button>
+                <Link to="/appointments" className="text-green-600 font-bold text-sm hover:underline">Book a Consultation</Link>
               </div>
             </div>
 
@@ -136,12 +135,12 @@ const Dashboard = () => {
             <h3 className="text-lg font-bold text-gray-800 mb-2">Your Medical Vault is Empty</h3>
             <p className="text-sm text-gray-500 max-w-md mb-6">Securely store your blood tests, vaccination records, and imaging results. We support automated importing from over 3,000+ medical providers.</p>
             <div className="flex gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition shadow-sm flex items-center gap-2">
+              <Link to="/upload" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition shadow-sm flex items-center gap-2">
                 <i className="fa-solid fa-file-arrow-up"></i> Upload First Record
-              </button>
-              <button className="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-6 py-2.5 rounded-lg font-bold text-sm transition shadow-sm flex items-center gap-2">
+              </Link>
+              <Link to="/connect" className="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-6 py-2.5 rounded-lg font-bold text-sm transition shadow-sm flex items-center gap-2">
                 <i className="fa-solid fa-link"></i> Connect Hospital Portal
-              </button>
+              </Link>
             </div>
           </div>
         </div>

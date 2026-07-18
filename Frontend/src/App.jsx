@@ -4,14 +4,16 @@ import Dashboard from "./pages/Dashboard";
 import Appointment from "./pages/Appointment";
 import Prescriptions from "./pages/Prescriptions";
 import EmergencyCard from "./pages/EmergencyCard";
-import DashboardLayout from "./layouts/DashboardLayout"
+import DashboardLayout from "./layouts/DashboardLayout";
 import MedicalRecords from "./pages/MedicalRecords";
 import MedicalProfile from "./pages/MedicalProfile";
+import Medications from "./pages/Medications"; // تم إضافة الاستيراد
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import LandingPage from "./pages/LandingPage";
 import ForgotPassword from "./pages/forgetPassword";
 import CompleteYourProfile from "./pages/completeYourProfile";
+
 
 function App() {
   return (
@@ -22,15 +24,15 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/complete-profile" element={<CompleteYourProfile />} />
         <Route path="/forget-password" element={<ForgotPassword />} />
-        <Route element={<DashboardLayout />}>
         
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/profile" element={<MedicalProfile />} />
-        <Route path="/appointments" element={<Appointment />} />
-        <Route path="/records" element={<MedicalRecords />} />
-        <Route path="/prescriptions" element={<Prescriptions />} />
-        <Route path="/emergency" element={<EmergencyCard />} />
-
+        <Route element={<DashboardLayout />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/profile" element={<MedicalProfile />} />
+          <Route path="/appointments" element={<Appointment />} />
+          <Route path="/records" element={<MedicalRecords />} />
+          <Route path="/prescriptions" element={<Prescriptions />} />
+          <Route path="/emergency" element={<EmergencyCard />} />
+          <Route path="/medications" element={<Medications />} /> {/* تم إضافة المسار */}
         </Route>
       </Routes>
     </BrowserRouter>
