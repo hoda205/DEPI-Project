@@ -1,22 +1,24 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const SignUp = () => {
   const navigate = useNavigate();
-  // 1. States لتخزين البيانات اللي المستخدم بيكتبها
-  const [fullName, setFullName] = useState('saper waleed');
+  
+  // 1. States لتخزين البيانات (تم تعديل fullName ليكون فاضي)
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // 2. States للتحكم في إظهار وإخفاء كلمة المرور (أزرار العين)
+  // 2. States للتحكم في إظهار وإخفاء كلمة المرور
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   
-  // 3. State لقياس وعرض قوة كلمة المرور تلقائياً
-  const [strength, setStrength] = useState({ text: 'Strong', colorClass: 'text-emerald-500', barCount: 3 });
+  // 3. State لقياس قوة كلمة المرور (تم تعديل الحالة الابتدائية)
+  const [strength, setStrength] = useState({ text: 'Weak', colorClass: 'text-gray-400', barCount: 0 });
   const [isLoading, setIsLoading] = useState(false);
-  // دالة ذكية لحساب قوة الباسورد وتحديث الشريط الأخضر بناءً على اللي بيتكتب
+
+  // دالة ذكية لحساب قوة الباسورد
   const handlePasswordChange = (e) => {
     const val = e.target.value;
     setPassword(val);
@@ -30,13 +32,10 @@ const SignUp = () => {
     } else {
       setStrength({ text: 'Strong', colorClass: 'text-emerald-500', barCount: 3 });
     }
-
-  if(true){
-    navigate('/' , { replace: true })
-  }
+    // تم حذف سطر الـ navigate من هنا عشان ميتنقلش تلقائي
   };
 
-  // دالة عند الضغط على زرار Create Account لحفظ البيانات والتحقق منها
+  // دالة عند الضغط على زرار Create Account
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -46,7 +45,7 @@ const SignUp = () => {
       return;
     }
 
-  setIsLoading(true);
+    setIsLoading(true);
     // محاكاة إرسال البيانات للسيرفر
     setTimeout(() => {
       alert(`🎉 Account created successfully for ${fullName}!`);
@@ -56,12 +55,11 @@ const SignUp = () => {
   };
 
   return (
+    // نفس الـ JSX القديم بتاعك بالظبط عشان نحافظ على الـ UI
     <div className="bg-[#f7f9fb] text-[#191c1e] min-h-screen flex flex-col font-sans">
-      {/* استيراد الأيقونات والخطوط مباشرة */}
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
-      {/* شريط التنقل العلوي (Navbar) */}
       <nav className="sticky top-0 z-40 flex justify-between items-center px-6 md:px-16 py-4 w-full bg-white border-b border-[#e2e8f0]">
         <div className="flex items-center gap-2">
           <span className="material-symbols-outlined text-[#004ac6] text-2xl font-bold" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
@@ -74,11 +72,8 @@ const SignUp = () => {
         </div>
       </nav>
 
-      {/* المحتوى الرئيسي (Main) */}
       <main className="flex-grow flex items-center justify-center p-6 md:p-12">
         <div className="w-full max-w-[1200px] flex flex-col lg:flex-row gap-12 items-center justify-between">
-          
-          {/* الجانب الأيسر: النص والمميزات */}
           <div className="hidden lg:flex flex-col w-1/2 space-y-6">
             <h1 className="text-4xl font-bold text-[#191c1e] leading-tight">
               Your entire medical history, <br />
@@ -120,7 +115,6 @@ const SignUp = () => {
             </div>
           </div>
 
-          {/* الجانب الأيمن: كارت إنشاء الحساب */}
           <div className="w-full lg:w-[460px] bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-8 border border-[#e2e8f0]">
             <div className="flex flex-col mb-6">
               <h2 className="text-2xl font-bold text-[#191c1e]">Create an account</h2>
@@ -128,16 +122,14 @@ const SignUp = () => {
             </div>
 
             <form className="space-y-4" onSubmit={handleSubmit}>
-              {/* Full Name */}
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-[#191c1e]" htmlFor="full_name">Full Name</label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-[#737686] text-xl">person</span>
-                  <input className="w-full h-11 pl-10 pr-4 rounded-lg border border-[#c3c6d7] focus:border-[#004ac6] focus:ring-1 focus:ring-[#004ac6] bg-[#f8fafc] transition-all text-sm outline-none" id="full_name" value={fullName} onChange={(e) => setFullName(e.target.value)} required type="text" />
+                  <input className="w-full h-11 pl-10 pr-4 rounded-lg border border-[#c3c6d7] focus:border-[#004ac6] focus:ring-1 focus:ring-[#004ac6] bg-[#f8fafc] transition-all text-sm outline-none" id="full_name" placeholder="Full Name" value={fullName} onChange={(e) => setFullName(e.target.value)} required type="text" />
                 </div>
               </div>
 
-              {/* Email */}
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-[#191c1e]" htmlFor="email">Email Address</label>
                 <div className="relative">
@@ -146,7 +138,6 @@ const SignUp = () => {
                 </div>
               </div>
 
-              {/* Password & Confirm */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-xs font-semibold text-[#191c1e]" htmlFor="password">Password</label>
@@ -171,7 +162,6 @@ const SignUp = () => {
                 </div>
               </div>
 
-              {/* Security Strength Indicator */}
               <div className="space-y-1.5">
                 <div className="flex justify-between items-center">
                   <span className="text-[11px] text-[#737686]">Security Strength</span>
@@ -184,7 +174,6 @@ const SignUp = () => {
                 </div>
               </div>
 
-              {/* الأزرار ووسائل التسجيل */}
               <div className="pt-2 space-y-3">
                 <button className="w-full h-11 bg-[#004ac6] hover:bg-[#2563eb] text-white font-bold rounded-lg transition-all text-sm flex items-center justify-center active:scale-[0.99]" disabled={isLoading} type="submit">
                   {isLoading ? <span>Creating Account...</span> : <span>Create Account</span>}
@@ -214,7 +203,6 @@ const SignUp = () => {
         </div>
       </main>
 
-      {/* الفوتر السفلي (Footer) */}
       <footer className="p-4 flex flex-col sm:flex-row justify-center items-center gap-6 text-[11px] text-[#737686] border-t border-[#e2e8f0] bg-white">
         <div className="flex items-center gap-1.5">
           <span className="material-symbols-outlined text-base">lock</span> 256-bit AES Encryption
