@@ -34,7 +34,7 @@ export default function CompleteYourProfile() {
         // TODO: Submit data
         let x = true;
         if (x) {
-            navigate("/");
+            navigate("/dashboard");
         }
     };
 
@@ -164,7 +164,7 @@ export default function CompleteYourProfile() {
                                     <ArrowRight />
                                 </button>
 
-                                <Link to="/" >
+                                <Link to="/dashboard" >
                                 <button
                                     type="button"
                                     className="skip-button flex items-center w-full justify-center"

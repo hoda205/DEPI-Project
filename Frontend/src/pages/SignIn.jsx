@@ -4,7 +4,7 @@ export default function SignIn() {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     if(true){
-      navigate('/', { replace: true })
+      navigate('/dashboard', { replace: true })
     }
   }
   return (

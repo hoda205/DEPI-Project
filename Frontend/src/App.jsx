@@ -17,14 +17,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/LandingPage" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/complete-profile" element={<CompleteYourProfile />} />
         <Route path="/forget-password" element={<ForgotPassword />} />
         <Route element={<DashboardLayout />}>
         
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<MedicalProfile />} />
         <Route path="/appointments" element={<Appointment />} />
         <Route path="/records" element={<MedicalRecords />} />
