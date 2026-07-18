@@ -60,7 +60,7 @@ export default function SignIn() {
             </form>
 
             <div className="mt-8 text-center text-sm text-gray-500">
-              Don't have an account? <a href="/signup" className="text-blue-600 font-bold hover:underline">Create Account</a>
+              Don't have an account? <Link href="/signup" className="text-blue-600 font-bold hover:underline">Create Account</Link>
             </div>
           </div>
         </div>
