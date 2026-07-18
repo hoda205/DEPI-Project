@@ -29,11 +29,6 @@ const tabs = [
         icon: FileText,
         path: "/prescriptions",
     },
-    {
-        title: "Notifications",
-        icon: Bell,
-        path: "/notifications",
-    },
 ];
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
